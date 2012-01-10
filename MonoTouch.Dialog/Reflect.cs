@@ -140,7 +140,7 @@ namespace MonoTouch.Dialog
 				return fi.GetValue (o);
 			var pi = mi as PropertyInfo;
 			
-			var getMethod = pi.GetGetMethod ();
+			var getMethod = pi.GetGetMethod (true);
 			return getMethod.Invoke (o, new object [0]);
 		}
 
@@ -152,7 +152,7 @@ namespace MonoTouch.Dialog
 				return;
 			}
 			var pi = mi as PropertyInfo;
-			var setMethod = pi.GetSetMethod ();
+			var setMethod = pi.GetSetMethod (true);
 			setMethod.Invoke (o, new object [] { val });
 		}
 			
